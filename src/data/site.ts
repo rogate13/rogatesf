@@ -1,0 +1,113 @@
+export const siteContent = {
+  metadata: {
+    title: "Rogate Sola Fide | Web Application Developer",
+    description:
+      "Portfolio of Rogate Sola Fide, a web application developer with experience in PHP, CodeIgniter, MySQL, IT support, and business systems.",
+  },
+  common: {
+    viewProject: "View case study",
+    viewAllProjects: "View all projects",
+    downloadResume: "Download CV",
+    contactMe: "Contact me",
+    backToProjects: "Back to projects",
+    visitWebsite: "Visit website",
+    viewRepository: "View repository",
+    present: "Present",
+  },
+  home: {
+    heroEyebrow: "Web Application Developer · Jakarta, Indonesia",
+    heroPrimaryCta: "Explore projects",
+    heroSecondaryCta: "About me",
+    heroPanelEyebrow: "Developer profile",
+    heroFocusLabel: "Focus",
+    heroFocusValue: "Business web systems",
+    heroExploreHint: "Move your pointer and explore",
+    aboutEyebrow: "Profile",
+    aboutTitle: "Development grounded in real operational needs.",
+    aboutBody:
+      "My work sits between application development, database design, system support, and workflow improvement. I focus on turning day-to-day operational requirements into usable web systems.",
+    servicesEyebrow: "What I do",
+    servicesTitle: "From requirements to a working business application.",
+    skillsEyebrow: "Technical toolkit",
+    skillsTitle: "Technologies and capabilities used across development and support work.",
+    projectsEyebrow: "Selected work",
+    projectsTitle: "Projects presented as case studies, not only screenshots.",
+    experienceEyebrow: "Experience",
+    experienceTitle: "Professional experience across development, application support, and IT operations.",
+    achievementsEyebrow: "Achievements",
+    achievementsTitle: "Selected programming competition results.",
+    ctaEyebrow: "Let's build something useful",
+    ctaTitle: "Have a role or project that matches my experience?",
+    ctaBody: "I am open to conversations about web application development, business systems, backend development, and application support.",
+  },
+  projects: {
+    eyebrow: "Project archive",
+    title: "Selected web, application, business system, education, and government projects.",
+    intro:
+      "A selection of business systems, web applications, corporate websites, education platforms, and public-sector projects. Open a project to explore the role, problem, solution, features, and implementation context.",
+    filterAllLabel: "All projects",
+    emptyState: "No projects found in this category.",
+    detail: {
+      overview: "Overview",
+      problem: "Problem",
+      solution: "Solution",
+      responsibilities: "My contribution",
+      features: "Key features",
+      technologies: "Technology",
+      impact: "Result / impact",
+      gallery: "Project gallery",
+      projectInfo: "Project information",
+      organization: "Organization",
+      role: "Role",
+      period: "Period",
+      category: "Category",
+    },
+  },
+  about: {
+    eyebrow: "About",
+    title: "A developer with experience across application development and day-to-day IT operations.",
+    summaryTitle: "Professional profile",
+    experienceTitle: "Professional experience",
+    additionalExperienceTitle: "Project & additional experience",
+    skillsTitle: "Technical skills",
+    educationTitle: "Education",
+    certificationsTitle: "Selected certifications",
+    languagesTitle: "Languages",
+  },
+  contact: {
+    eyebrow: "Contact",
+    title: "Get in touch.",
+    body: "For employment opportunities, application development work, or professional collaboration, you can contact me directly using the details below.",
+    emailLabel: "Email",
+    phoneLabel: "Phone",
+    locationLabel: "Location",
+    resumeLabel: "Resume",
+  },
+  ui: {
+    changeThemeLabel: "Change color theme",
+    themeMenuTitle: "Color atmosphere",
+    themeButtonLabel: "Theme",
+  },
+  footer: {
+    note: "Built with Next.js, TypeScript, Tailwind CSS, and an interactive Three.js visual layer.",
+  },
+} as const;
+
+export const services = [
+  {
+    title: "Web Application Development",
+    description: "Build and maintain web-based applications around business and system requirements.",
+  },
+  {
+    title: "Database & Data Workflow",
+    description: "Design data structures, mappings, queries, and reporting views for operational systems.",
+  },
+  {
+    title: "Application & IT Support",
+    description: "Troubleshoot applications, software, hardware, and user issues while improving support documentation.",
+  },
+  {
+    title: "Workflow Improvement",
+    description: "Translate manual operational processes into more structured digital workflows.",
+  },
+] as const;
