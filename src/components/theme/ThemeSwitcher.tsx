@@ -17,7 +17,7 @@ function applyTheme(theme: ThemePreset) {
 
 export function ThemeSwitcher({ compact = false }: { compact?: boolean }) {
   const [open, setOpen] = useState(false);
-  const [active, setActive] = useState(themeConfig.defaultTheme);
+  const [active, setActive] = useState<string>(themeConfig.defaultTheme);
   const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
