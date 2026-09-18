@@ -47,6 +47,10 @@ export const portfolio = {
       ],
       interactionHint: "Move your cursor. Tap the visual. Keep exploring.",
     },
+    scrollCue: {
+      label: "Explore now",
+      text: "Scroll into the work — I’ll walk you through how I think, build, and solve.",
+    },
     focusLabel: "Current focus",
     focusValue: "Business systems · Web apps · Application support",
   },
@@ -85,6 +89,19 @@ export const portfolio = {
       title: "Have a system, workflow, or web application you want to develop?",
       body:
         "I am open to conversations around web application development, business systems, backend development, database-driven applications, and application support.",
+    },
+  },
+
+  scrollNarrative: {
+    label: "Rogate here",
+    messages: {
+      about: "Nice to meet you. Here’s the way I approach real operational problems — from understanding the workflow to making it usable.",
+      services: "If a process still feels manual, repetitive, or hard to track, this is usually where I start turning it into a system.",
+      projects: "Want to see the work itself? These projects show how I translate business needs into interfaces, data flows, and working applications.",
+      skills: "Under the hood, these are the tools and capabilities I use to keep the product practical, maintainable, and useful.",
+      experience: "Good systems come from understanding day-to-day operations. These roles shaped how I build and support technology in the real world.",
+      credentials: "A little background before we talk about your next idea — education, certifications, and programming achievements that support the journey.",
+      contact: "You’ve seen how I work. Now I’m curious about your side: what should we build, simplify, or improve next?",
     },
   },
 

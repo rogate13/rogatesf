@@ -28,6 +28,14 @@ export function Hero() {
             <div className="hero-orbit-label hero-orbit-label-three">Data Workflows</div>
           </div>
         </div>
+
+        <a className="hero-scroll-cue" href="#about" aria-label={`${portfolio.hero.scrollCue.label}: ${portfolio.hero.scrollCue.text}`}>
+          <span className="hero-scroll-copy">
+            <strong>{portfolio.hero.scrollCue.label}</strong>
+            <small>{portfolio.hero.scrollCue.text}</small>
+          </span>
+          <span className="hero-scroll-mouse" aria-hidden="true"><span /></span>
+        </a>
       </Container>
     </section>
   );

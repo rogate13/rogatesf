@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ThemeBootScript } from "@/components/theme/ThemeBootScript";
 import { portfolio } from "@/data";
+import { ScrollExperience } from "@/components/experience/ScrollExperience";
 
 export const metadata: Metadata = {
   title: portfolio.metadata.title,
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       </head>
       <body>
         <Header />
+        <ScrollExperience />
         <main>{children}</main>
         <Footer />
       </body>

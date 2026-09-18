@@ -9,6 +9,11 @@ A one-page portfolio built with Next.js, TypeScript, Tailwind CSS, and an intera
 - Only primary controls: **Download CV** and **Theme switcher**
 - Interactive Three.js hero with pointer/tap response
 - Animated introduction dialogue
+- Animated **Explore now** scroll cue
+- Elegant section reveal transitions while scrolling
+- Contextual “Rogate here” conversation bubble that changes with each section
+- Subtle scroll-reactive Three.js motion
+- Minimal top scroll-progress line
 - RSF SVG brand mark + favicon
 - All editable portfolio content is centralized in **one file**
 
@@ -22,6 +27,8 @@ That file contains:
 
 - Profile
 - Hero dialogue
+- Explore-now scroll cue
+- Scroll conversation messages
 - Section titles and copy
 - Services
 - Projects

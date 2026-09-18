@@ -13,14 +13,14 @@ export default function HomePage() {
     <>
       <Hero />
 
-      <section className="section-divider py-14 sm:py-20">
+      <section id="about" data-story-section="about" className="scroll-section section-divider py-14 sm:py-20">
         <Container>
           <SectionHeading
             eyebrow={portfolio.sections.about.eyebrow}
             title={portfolio.sections.about.title}
             description={portfolio.sections.about.body}
           />
-          <div className="site-card mt-8 max-w-5xl rounded-[1.75rem] p-6 sm:p-9">
+          <div className="site-card reveal-card mt-8 max-w-5xl rounded-[1.75rem] p-6 sm:p-9">
             <p className="max-w-4xl text-base leading-8 text-muted sm:text-lg">{portfolio.profile.professionalSummary}</p>
             <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3 border-t border-[var(--border)] pt-6 text-sm">
               <span className="text-muted">{portfolio.profile.location}</span>
@@ -31,12 +31,12 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="py-14 sm:py-20">
+      <section data-story-section="services" className="scroll-section py-14 sm:py-20">
         <Container>
           <SectionHeading eyebrow={portfolio.sections.services.eyebrow} title={portfolio.sections.services.title} />
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="reveal-grid mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {portfolio.services.map((service, index) => (
-              <article key={service.title} className="site-card interactive-card rounded-[1.5rem] p-5 sm:p-6">
+              <article key={service.title} className="site-card interactive-card reveal-card rounded-[1.5rem] p-5 sm:p-6">
                 <p className="text-xs font-extrabold tracking-[0.16em] text-accent">0{index + 1}</p>
                 <h3 className="mt-4 font-semibold text-main">{service.title}</h3>
                 <p className="mt-3 text-sm leading-6 text-muted">{service.description}</p>
@@ -46,14 +46,14 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="section-divider py-14 sm:py-20">
+      <section data-story-section="projects" className="scroll-section section-divider py-14 sm:py-20">
         <Container>
           <SectionHeading
             eyebrow={portfolio.sections.projects.eyebrow}
             title={portfolio.sections.projects.title}
             description={portfolio.sections.projects.description}
           />
-          <div className="mt-8 grid gap-5 md:grid-cols-2 xl:gap-6">
+          <div className="reveal-grid mt-8 grid gap-5 md:grid-cols-2 xl:gap-6">
             {selectedProjects.map((project, index) => (
               <ProjectCard key={project.slug} project={project} index={index} />
             ))}
@@ -61,25 +61,25 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="py-14 sm:py-20">
+      <section data-story-section="skills" className="scroll-section py-14 sm:py-20">
         <Container>
           <SectionHeading eyebrow={portfolio.sections.skills.eyebrow} title={portfolio.sections.skills.title} />
           <div className="mt-8"><SkillGrid groups={skillGroups} /></div>
         </Container>
       </section>
 
-      <section className="section-divider py-14 sm:py-20">
+      <section data-story-section="experience" className="scroll-section section-divider py-14 sm:py-20">
         <Container>
           <SectionHeading eyebrow={portfolio.sections.experience.eyebrow} title={portfolio.sections.experience.title} />
           <div className="mt-8"><ExperienceList items={experiences} /></div>
         </Container>
       </section>
 
-      <section className="py-14 sm:py-20">
+      <section data-story-section="credentials" className="scroll-section py-14 sm:py-20">
         <Container>
           <SectionHeading eyebrow={portfolio.sections.credentials.eyebrow} title={portfolio.sections.credentials.title} />
-          <div className="mt-8 grid gap-5 lg:grid-cols-[1.1fr_.9fr]">
-            <div className="site-card rounded-[1.75rem] p-6 sm:p-8">
+          <div className="reveal-grid mt-8 grid gap-5 lg:grid-cols-[1.1fr_.9fr]">
+            <div className="site-card reveal-card rounded-[1.75rem] p-6 sm:p-8">
               <p className="eyebrow">Education</p>
               {education.map((item) => (
                 <div key={item.institution} className="mt-5">
@@ -104,7 +104,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="site-card rounded-[1.75rem] p-6 sm:p-8">
+            <div className="site-card reveal-card rounded-[1.75rem] p-6 sm:p-8">
               <p className="eyebrow">Programming achievements</p>
               <div className="mt-5 grid gap-4">
                 {achievements.map((achievement) => (
@@ -120,9 +120,9 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="pb-16 pt-6 sm:pb-24 sm:pt-10">
+      <section data-story-section="contact" className="scroll-section pb-16 pt-6 sm:pb-24 sm:pt-10">
         <Container>
-          <div className="cta-panel rounded-[2rem] p-7 sm:p-10 lg:p-12">
+          <div className="cta-panel reveal-card rounded-[2rem] p-7 sm:p-10 lg:p-12">
             <p className="eyebrow">{portfolio.sections.contact.eyebrow}</p>
             <h2 className="mt-4 max-w-4xl text-3xl font-semibold tracking-[-0.035em] text-main sm:text-4xl lg:text-5xl">
               {portfolio.sections.contact.title}

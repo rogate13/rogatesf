@@ -34,6 +34,24 @@ prompts
 interactionHint
 ```
 
+### Explore / scroll-down message
+Search for:
+
+```ts
+scrollCue: {
+```
+
+Edit `label` and `text`. This controls the animated **Explore now** cue below the hero.
+
+### Conversational messages while scrolling
+Search for:
+
+```ts
+scrollNarrative: {
+```
+
+Each message is connected to a section (`about`, `services`, `projects`, `skills`, `experience`, `credentials`, `contact`). Edit the copy there to change what Rogate says as a visitor explores the page.
+
 ### Projects
 Search for:
 

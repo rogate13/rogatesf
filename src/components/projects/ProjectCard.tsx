@@ -6,7 +6,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
   const detailItems = project.features.slice(0, 4);
 
   return (
-    <article className="site-card interactive-card group overflow-hidden rounded-[1.75rem]">
+    <article className="site-card interactive-card reveal-card group overflow-hidden rounded-[1.75rem]">
       <div className="project-media relative aspect-[16/10] overflow-hidden">
         {project.cover ? (
           <Image

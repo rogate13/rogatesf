@@ -3,7 +3,7 @@ import { TagList } from "@/components/shared/TagList";
 
 export function ExperienceList({ items }: { items: Experience[] }) {
   return (
-    <div className="site-card overflow-hidden rounded-[1.75rem]">
+    <div className="site-card reveal-card overflow-hidden rounded-[1.75rem]">
       {items.map((item, index) => (
         <article
           key={`${item.company}-${item.role}`}

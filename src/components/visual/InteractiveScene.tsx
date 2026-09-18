@@ -125,11 +125,17 @@ export function InteractiveScene() {
     const pointer = { x: 0, y: 0 };
     const target = { x: 0, y: 0 };
     let pulse = 0;
+    let scrollTarget = 0;
+    let scrollEase = 0;
 
     const onPointerMove = (event: PointerEvent) => {
       if (mobile || reducedMotion) return;
       target.x = (event.clientX / window.innerWidth - 0.5) * 2;
       target.y = (event.clientY / window.innerHeight - 0.5) * 2;
+    };
+
+    const onScroll = () => {
+      scrollTarget = Math.min(Math.max(window.scrollY / Math.max(window.innerHeight, 1), 0), 1.25);
     };
 
     const onPointerDown = (event: PointerEvent) => {
@@ -146,6 +152,8 @@ export function InteractiveScene() {
 
     window.addEventListener("pointermove", onPointerMove, { passive: true });
     window.addEventListener("pointerdown", onPointerDown, { passive: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
 
     const updateColors = () => {
       const accent = cssColor("--accent", "#4ce6b3");
@@ -180,6 +188,7 @@ export function InteractiveScene() {
       if (!reducedMotion) {
         pointer.x += (target.x - pointer.x) * 0.035;
         pointer.y += (target.y - pointer.y) * 0.035;
+        scrollEase += (scrollTarget - scrollEase) * 0.045;
 
         group.rotation.y += config.rotationSpeed;
         group.rotation.x += config.rotationSpeed * 0.34;
@@ -187,7 +196,10 @@ export function InteractiveScene() {
         group.rotation.x += pointer.y * config.pointerStrength * 0.0007;
 
         group.position.x = (mobile ? 0.5 : 0.35) + pointer.x * 0.08;
-        group.position.y = -pointer.y * 0.07;
+        group.position.y = -pointer.y * 0.07 - scrollEase * 0.18;
+        group.rotation.z = scrollEase * 0.13;
+        const scrollScale = 1 - Math.min(scrollEase * 0.055, 0.075);
+        group.scale.setScalar(scrollScale);
 
         ring.rotation.z -= config.rotationSpeed * 0.72;
         ringTwo.rotation.z += config.rotationSpeed * 0.55;
@@ -220,6 +232,7 @@ export function InteractiveScene() {
       window.cancelAnimationFrame(frame);
       window.removeEventListener("pointermove", onPointerMove);
       window.removeEventListener("pointerdown", onPointerDown);
+      window.removeEventListener("scroll", onScroll);
       window.removeEventListener("portfolio-theme-change", updateColors);
       observer.disconnect();
       orbGeometry.dispose();
