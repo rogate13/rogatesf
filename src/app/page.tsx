@@ -4,6 +4,7 @@ import { ExperienceList } from "@/components/home/ExperienceList";
 import { ProjectCard } from "@/components/projects/ProjectCard";
 import { Container } from "@/components/shared/Container";
 import { SectionHeading } from "@/components/shared/SectionHeading";
+import { SectionDialogue } from "@/components/shared/SectionDialogue";
 import { achievements, certifications, education, experiences, portfolio, projects, skillGroups } from "@/data";
 
 export default function HomePage() {
@@ -20,6 +21,7 @@ export default function HomePage() {
             title={portfolio.sections.about.title}
             description={portfolio.sections.about.body}
           />
+          <SectionDialogue label={portfolio.scrollNarrative.label} message={portfolio.scrollNarrative.messages.about} />
           <div className="site-card reveal-card mt-8 max-w-5xl rounded-[1.75rem] p-6 sm:p-9">
             <p className="max-w-4xl text-base leading-8 text-muted sm:text-lg">{portfolio.profile.professionalSummary}</p>
             <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3 border-t border-[var(--border)] pt-6 text-sm">
@@ -34,6 +36,7 @@ export default function HomePage() {
       <section data-story-section="services" className="scroll-section py-14 sm:py-20">
         <Container>
           <SectionHeading eyebrow={portfolio.sections.services.eyebrow} title={portfolio.sections.services.title} />
+          <SectionDialogue label={portfolio.scrollNarrative.label} message={portfolio.scrollNarrative.messages.services} />
           <div className="reveal-grid mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {portfolio.services.map((service, index) => (
               <article key={service.title} className="site-card interactive-card reveal-card rounded-[1.5rem] p-5 sm:p-6">
@@ -53,6 +56,7 @@ export default function HomePage() {
             title={portfolio.sections.projects.title}
             description={portfolio.sections.projects.description}
           />
+          <SectionDialogue label={portfolio.scrollNarrative.label} message={portfolio.scrollNarrative.messages.projects} />
           <div className="reveal-grid mt-8 grid gap-5 md:grid-cols-2 xl:gap-6">
             {selectedProjects.map((project, index) => (
               <ProjectCard key={project.slug} project={project} index={index} />
@@ -64,6 +68,7 @@ export default function HomePage() {
       <section data-story-section="skills" className="scroll-section py-14 sm:py-20">
         <Container>
           <SectionHeading eyebrow={portfolio.sections.skills.eyebrow} title={portfolio.sections.skills.title} />
+          <SectionDialogue label={portfolio.scrollNarrative.label} message={portfolio.scrollNarrative.messages.skills} />
           <div className="mt-8"><SkillGrid groups={skillGroups} /></div>
         </Container>
       </section>
@@ -71,6 +76,7 @@ export default function HomePage() {
       <section data-story-section="experience" className="scroll-section section-divider py-14 sm:py-20">
         <Container>
           <SectionHeading eyebrow={portfolio.sections.experience.eyebrow} title={portfolio.sections.experience.title} />
+          <SectionDialogue label={portfolio.scrollNarrative.label} message={portfolio.scrollNarrative.messages.experience} />
           <div className="mt-8"><ExperienceList items={experiences} /></div>
         </Container>
       </section>
@@ -78,6 +84,7 @@ export default function HomePage() {
       <section data-story-section="credentials" className="scroll-section py-14 sm:py-20">
         <Container>
           <SectionHeading eyebrow={portfolio.sections.credentials.eyebrow} title={portfolio.sections.credentials.title} />
+          <SectionDialogue label={portfolio.scrollNarrative.label} message={portfolio.scrollNarrative.messages.credentials} />
           <div className="reveal-grid mt-8 grid gap-5 lg:grid-cols-[1.1fr_.9fr]">
             <div className="site-card reveal-card rounded-[1.75rem] p-6 sm:p-8">
               <p className="eyebrow">Education</p>
@@ -124,6 +131,7 @@ export default function HomePage() {
         <Container>
           <div className="cta-panel reveal-card rounded-[2rem] p-7 sm:p-10 lg:p-12">
             <p className="eyebrow">{portfolio.sections.contact.eyebrow}</p>
+            <SectionDialogue label={portfolio.scrollNarrative.label} message={portfolio.scrollNarrative.messages.contact} />
             <h2 className="mt-4 max-w-4xl text-3xl font-semibold tracking-[-0.035em] text-main sm:text-4xl lg:text-5xl">
               {portfolio.sections.contact.title}
             </h2>

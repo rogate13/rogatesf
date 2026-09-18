@@ -1,6 +1,6 @@
 # CONTENT EDIT GUIDE
 
-The portfolio is now intentionally simple: **one page + one main data file**.
+The portfolio is intentionally simple: **one page + one main data file**.
 
 ## 1. Edit almost everything here
 
@@ -34,23 +34,45 @@ prompts
 interactionHint
 ```
 
-### Explore / scroll-down message
+### Hero explore popup
 Search for:
 
 ```ts
-scrollCue: {
+explorePopup: {
 ```
 
-Edit `label` and `text`. This controls the animated **Explore now** cue below the hero.
+You can edit:
 
-### Conversational messages while scrolling
+```ts
+kicker
+title
+text
+buttonLabel
+targetId
+```
+
+The popup appears inside the hero area. Pressing **Explore now** smoothly scrolls to the section whose ID matches `targetId` (default: `about`). It is not a sticky popup that follows the visitor down the page.
+
+### Conversational messages inside each section
 Search for:
 
 ```ts
 scrollNarrative: {
 ```
 
-Each message is connected to a section (`about`, `services`, `projects`, `skills`, `experience`, `credentials`, `contact`). Edit the copy there to change what Rogate says as a visitor explores the page.
+Each message is connected to a section:
+
+```text
+about
+services
+projects
+skills
+experience
+credentials
+contact
+```
+
+These messages appear as small inline conversation bubbles inside their own sections, so they move naturally with the page instead of sticking to the bottom of the screen.
 
 ### Projects
 Search for:

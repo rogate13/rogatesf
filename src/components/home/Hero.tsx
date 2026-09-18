@@ -1,6 +1,7 @@
 import { Container } from "@/components/shared/Container";
 import { InteractiveScene } from "@/components/visual/InteractiveScene";
 import { HeroDialogue } from "@/components/home/HeroDialogue";
+import { HeroExplorePopup } from "@/components/home/HeroExplorePopup";
 import { portfolio } from "@/data";
 
 export function Hero() {
@@ -29,13 +30,7 @@ export function Hero() {
           </div>
         </div>
 
-        <a className="hero-scroll-cue" href="#about" aria-label={`${portfolio.hero.scrollCue.label}: ${portfolio.hero.scrollCue.text}`}>
-          <span className="hero-scroll-copy">
-            <strong>{portfolio.hero.scrollCue.label}</strong>
-            <small>{portfolio.hero.scrollCue.text}</small>
-          </span>
-          <span className="hero-scroll-mouse" aria-hidden="true"><span /></span>
-        </a>
+        <HeroExplorePopup />
       </Container>
     </section>
   );

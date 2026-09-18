@@ -1,21 +1,22 @@
-# Rogate Sola Fide — One Page Portfolio
+# Rogate Sola Fide — One Page Interactive Portfolio
 
-A one-page portfolio built with Next.js, TypeScript, Tailwind CSS, and an interactive Three.js hero.
+A one-page developer portfolio using Next.js, TypeScript, Tailwind CSS, and an interactive Three.js hero.
 
-## What changed
+## Current experience
 
 - One-page portfolio only (`/`)
-- No navigation menu and no project detail routes
-- Only primary controls: **Download CV** and **Theme switcher**
+- Minimal header controls: **Download CV** and **Theme switcher**
 - Interactive Three.js hero with pointer/tap response
 - Animated introduction dialogue
-- Animated **Explore now** scroll cue
-- Elegant section reveal transitions while scrolling
-- Contextual “Rogate here” conversation bubble that changes with each section
+- Floating **Explore now** popup inside the hero
+- Explore button smoothly scrolls to the next portfolio section
+- Popup disappears with the hero; it does not stay attached to the bottom of the screen
+- Elegant reveal / blur / motion transitions for each section
+- Inline “Rogate here” conversation notes inside each section
 - Subtle scroll-reactive Three.js motion
 - Minimal top scroll-progress line
 - RSF SVG brand mark + favicon
-- All editable portfolio content is centralized in **one file**
+- Editable portfolio content centralized in **one file**
 
 ## Edit content here
 
@@ -27,8 +28,8 @@ That file contains:
 
 - Profile
 - Hero dialogue
-- Explore-now scroll cue
-- Scroll conversation messages
+- Hero Explore popup copy + target section
+- Section conversation messages
 - Section titles and copy
 - Services
 - Projects

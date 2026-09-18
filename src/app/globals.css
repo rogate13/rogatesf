@@ -946,3 +946,234 @@ a:focus-visible {
     filter: none !important;
   }
 }
+
+/* ------------------------------------------------------------
+   V5 — hero explore popup + inline guided conversation
+   ------------------------------------------------------------ */
+
+.hero-explore-popup {
+  position: absolute;
+  z-index: 24;
+  right: clamp(0rem, 3vw, 2.5rem);
+  bottom: 1.15rem;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.9rem;
+  width: min(38rem, calc(100% - 2rem));
+  padding: 0.9rem 0.95rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 24%, var(--border));
+  border-radius: 1.35rem;
+  background:
+    radial-gradient(circle at 85% 15%, color-mix(in srgb, var(--accent-2) 10%, transparent), transparent 12rem),
+    color-mix(in srgb, var(--surface-elevated) 90%, transparent);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.26), 0 0 42px color-mix(in srgb, var(--accent) 8%, transparent);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  opacity: 0;
+  transform: translateY(18px) scale(0.975);
+  pointer-events: none;
+  transition:
+    opacity 520ms ease,
+    transform 680ms cubic-bezier(.22, 1, .36, 1),
+    border-color 260ms ease;
+}
+
+.hero-explore-popup-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.hero-explore-popup-mark {
+  display: grid;
+  place-items: center;
+  width: 2.65rem;
+  height: 2.65rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 42%, var(--border));
+  border-radius: 0.9rem;
+  background: linear-gradient(145deg, color-mix(in srgb, var(--accent) 18%, transparent), color-mix(in srgb, var(--accent-2) 14%, transparent));
+  color: var(--text);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.hero-explore-popup-kicker,
+.section-dialogue-label {
+  color: var(--accent);
+  font-size: 0.64rem;
+  font-weight: 850;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.hero-explore-popup-title {
+  margin-top: 0.18rem;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 760;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+}
+
+.hero-explore-popup-text {
+  margin-top: 0.15rem;
+  color: var(--subtle);
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+.hero-explore-popup-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 2.75rem;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 38%, var(--border));
+  border-radius: 9999px;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 22%, var(--surface)), color-mix(in srgb, var(--accent-2) 13%, var(--surface)));
+  color: var(--text);
+  font-size: 0.74rem;
+  font-weight: 820;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.hero-explore-popup-button:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--accent) 68%, var(--border));
+  box-shadow: 0 12px 30px color-mix(in srgb, var(--accent) 14%, transparent);
+}
+
+.hero-explore-popup-arrow {
+  display: inline-grid;
+  place-items: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 15%, transparent);
+  color: var(--accent);
+  animation: popup-arrow 1.7s cubic-bezier(.22, 1, .36, 1) infinite;
+}
+
+@keyframes popup-arrow {
+  0%, 100% { transform: translateY(-1px); }
+  50% { transform: translateY(3px); }
+}
+
+.section-dialogue {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  width: min(43rem, 100%);
+  margin: 1.35rem 0 0 auto;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 16%, var(--border));
+  border-radius: 1.15rem 1.15rem 0.35rem 1.15rem;
+  background: color-mix(in srgb, var(--surface) 74%, transparent);
+  box-shadow: 0 16px 46px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.section-dialogue::after {
+  content: "";
+  position: absolute;
+  right: 0.6rem;
+  bottom: -0.38rem;
+  width: 0.72rem;
+  height: 0.72rem;
+  transform: rotate(45deg);
+  border-right: 1px solid color-mix(in srgb, var(--accent) 16%, var(--border));
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 16%, var(--border));
+  background: color-mix(in srgb, var(--surface-solid) 92%, transparent);
+}
+
+.section-dialogue-mark {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--border));
+  border-radius: 0.68rem;
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  color: var(--text);
+  font-size: 0.57rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.section-dialogue-message {
+  margin-top: 0.26rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 1023px) {
+  .hero-explore-popup {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    margin: -1.4rem auto 0;
+    width: min(40rem, 100%);
+  }
+}
+
+@media (max-width: 639px) {
+  .hero-explore-popup {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.72rem;
+    margin-top: -0.6rem;
+    padding: 0.78rem;
+    border-radius: 1.1rem;
+  }
+
+  .hero-explore-popup-mark {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.75rem;
+    font-size: 0.6rem;
+  }
+
+  .hero-explore-popup-button {
+    grid-column: 1 / -1;
+    width: 100%;
+    min-height: 2.8rem;
+    margin-top: 0.05rem;
+  }
+
+  .hero-explore-popup-title {
+    font-size: 0.88rem;
+  }
+
+  .hero-explore-popup-text {
+    font-size: 0.68rem;
+  }
+
+  .section-dialogue {
+    margin-top: 1.1rem;
+    padding: 0.72rem 0.78rem;
+  }
+
+  .section-dialogue-message {
+    font-size: 0.72rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-explore-popup,
+  .hero-explore-popup-button,
+  .hero-explore-popup-arrow,
+  .section-dialogue {
+    animation: none !important;
+    transition: none !important;
+  }
+}

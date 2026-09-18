@@ -47,9 +47,12 @@ export const portfolio = {
       ],
       interactionHint: "Move your cursor. Tap the visual. Keep exploring.",
     },
-    scrollCue: {
-      label: "Explore now",
-      text: "Scroll into the work — I’ll walk you through how I think, build, and solve.",
+    explorePopup: {
+      kicker: "Ready when you are",
+      title: "Want to see how I turn ideas into working systems?",
+      text: "Let me walk you through the way I think, build, solve, and support real-world digital products.",
+      buttonLabel: "Explore now",
+      targetId: "about",
     },
     focusLabel: "Current focus",
     focusValue: "Business systems · Web apps · Application support",
