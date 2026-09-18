@@ -164,3 +164,48 @@ src/components/
 ```
 
 For normal content updates, you should not need to touch them.
+
+## V7 visual refinements
+
+### RSF logo
+The main logo and browser icon are now the same clear `RSF` lettermark.
+
+Files:
+- `public/brand/rsf-logo.svg`
+- `src/app/icon.svg`
+
+The three letters are intentionally separated and readable at small sizes.
+
+### Hero position
+The first hero content is positioned closer to the top on desktop so the introduction appears sooner without leaving a large empty area above it.
+
+Layout file:
+- `src/components/home/Hero.tsx`
+
+### Ambient Three.js background
+Sections below the hero now share one lightweight Three.js ambient scene. It uses subtle wireframe objects, orbit rings, and particles around the edges so the content remains easy to read.
+
+Component:
+- `src/components/visual/AmbientScene.tsx`
+
+Settings remain editable from the single content/config file:
+- `src/data/portfolio.ts`
+
+Look for:
+
+```ts
+ambient3D: {
+  enabled: true,
+  particleCountDesktop: 460,
+  particleCountMobile: 170,
+  maxPixelRatio: 1.35,
+  maxOpacity: 0.34,
+  rotationSpeed: 0.00115,
+  orbOpacity: 0.24,
+  ringOpacity: 0.18,
+  particlesOpacity: 0.32,
+}
+```
+
+To make the background quieter, reduce `maxOpacity`, `orbOpacity`, `ringOpacity`, and `particlesOpacity`.
+To disable it completely, set `enabled: false`.

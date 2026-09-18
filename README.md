@@ -77,3 +77,10 @@ http://localhost:3000
 npm run build
 npm start
 ```
+
+### V7 visual update
+- Clearer RSF logo/fav icon with all three letters visible.
+- Hero introduction moved upward on desktop.
+- Lightweight ambient Three.js scene continues through the portfolio sections after the hero.
+- Ambient animation is intentionally low-opacity and edge-weighted to avoid interfering with text.
+- Ambient settings remain editable in `src/data/portfolio.ts` under `visualConfig.ambient3D`.

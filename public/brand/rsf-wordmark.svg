@@ -1,7 +1,7 @@
 <svg width="640" height="180" viewBox="0 0 640 180" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect x="10" y="10" width="160" height="160" rx="46" fill="#07111F"/>
   <rect x="12" y="12" width="156" height="156" rx="44" stroke="#4CE6B3" stroke-width="3"/>
-  <text x="90" y="108" text-anchor="middle" fill="white" font-size="52" font-family="Arial, Helvetica, sans-serif" font-weight="800" letter-spacing="-4">RSF</text>
+  <text x="90" y="108" text-anchor="middle" fill="white" font-size="50" font-family="Arial, Helvetica, sans-serif" font-weight="800" letter-spacing="-5">RSF</text>
   <circle cx="142" cy="40" r="6" fill="#7AA7FF"/>
   <text x="205" y="82" fill="#07111F" font-size="38" font-family="Arial, Helvetica, sans-serif" font-weight="800">Rogate Sola Fide</text>
   <text x="207" y="118" fill="#52657A" font-size="22" font-family="Arial, Helvetica, sans-serif" font-weight="600" letter-spacing="2">WEB APPLICATION DEVELOPER</text>

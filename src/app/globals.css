@@ -1177,3 +1177,109 @@ a:focus-visible {
     transition: none !important;
   }
 }
+
+/* ------------------------------------------------------------
+   V7 — clearer RSF mark, higher hero content, ambient Three.js
+   ------------------------------------------------------------ */
+
+main,
+.footer-shell {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-shell {
+  align-items: flex-start;
+}
+
+.hero-shell > .mx-auto {
+  width: 100%;
+}
+
+.ambient-three-scene {
+  position: fixed;
+  inset: 4rem 0 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 520ms ease;
+  mask-image:
+    linear-gradient(to bottom, transparent 0%, black 13%, black 90%, transparent 100%);
+  -webkit-mask-image:
+    linear-gradient(to bottom, transparent 0%, black 13%, black 90%, transparent 100%);
+}
+
+.ambient-three-scene::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--background) 30%, transparent) 30%,
+    color-mix(in srgb, var(--background) 54%, transparent) 50%,
+    color-mix(in srgb, var(--background) 30%, transparent) 70%,
+    transparent 100%
+  );
+}
+
+.ambient-three-scene canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  filter: saturate(1.05);
+}
+
+.scroll-section {
+  z-index: 2;
+}
+
+.scroll-section > .mx-auto {
+  position: relative;
+  z-index: 2;
+}
+
+/* Give the content a quiet reading lane while keeping the 3D motion visible at the edges. */
+.scroll-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--background) 17%, transparent) 18%,
+    color-mix(in srgb, var(--background) 30%, transparent) 50%,
+    color-mix(in srgb, var(--background) 17%, transparent) 82%,
+    transparent 100%
+  );
+}
+
+@media (min-width: 1024px) {
+  .hero-shell .grid {
+    padding-top: 0.35rem;
+  }
+
+  .hero-shell .hero-dialogue {
+    max-width: 45rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .ambient-three-scene {
+    top: 4rem;
+  }
+
+  .scroll-section::after {
+    background: color-mix(in srgb, var(--background) 12%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-three-scene {
+    opacity: 0.12 !important;
+  }
+}

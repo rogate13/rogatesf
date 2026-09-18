@@ -6,10 +6,10 @@ import { portfolio } from "@/data";
 
 export function Hero() {
   return (
-    <section className="hero-shell py-14 sm:py-20 lg:py-24">
+    <section className="hero-shell pb-12 pt-7 sm:pb-16 sm:pt-9 lg:pb-16 lg:pt-10">
       <InteractiveScene />
       <Container className="relative z-10">
-        <div className="grid min-h-[72svh] items-center gap-12 lg:grid-cols-[.9fr_1.1fr] lg:gap-8">
+        <div className="grid min-h-[68svh] items-start gap-10 lg:min-h-[70svh] lg:grid-cols-[.9fr_1.1fr] lg:gap-8">
           <div className="relative z-10 max-w-3xl">
             <p className="eyebrow mb-5">{portfolio.hero.eyebrow}</p>
             <HeroDialogue />

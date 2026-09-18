@@ -682,4 +682,15 @@ export const visualConfig = {
     satelliteCount: 7,
     clickPulse: 0.22,
   },
+  ambient3D: {
+    enabled: true,
+    particleCountDesktop: 460,
+    particleCountMobile: 170,
+    maxPixelRatio: 1.35,
+    maxOpacity: 0.34,
+    rotationSpeed: 0.00115,
+    orbOpacity: 0.24,
+    ringOpacity: 0.18,
+    particlesOpacity: 0.32,
+  },
 } as const;
