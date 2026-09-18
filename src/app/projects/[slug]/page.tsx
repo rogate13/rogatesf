@@ -11,20 +11,19 @@ export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
 }
 
-async function getSlug(params: { slug: string } | Promise<{ slug: string }>) {
-  const resolved = await Promise.resolve(params);
-  return resolved.slug;
-}
+type ProjectPageProps = {
+  params: Promise<{ slug: string }>;
+};
 
-export async function generateMetadata({ params }: { params: { slug: string } | Promise<{ slug: string }> }): Promise<Metadata> {
-  const slug = await getSlug(params);
+export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
+  const { slug } = await params;
   const project = projects.find((item) => item.slug === slug);
   if (!project) return {};
   return { title: project.seo.title, description: project.seo.description };
 }
 
-export default async function ProjectDetailPage({ params }: { params: { slug: string } | Promise<{ slug: string }> }) {
-  const slug = await getSlug(params);
+export default async function ProjectDetailPage({ params }: ProjectPageProps) {
+  const { slug } = await params;
   const project = projects.find((item) => item.slug === slug);
   if (!project) notFound();
   const labels = siteContent.projects.detail;
