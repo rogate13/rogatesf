@@ -1,13 +1,13 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { Navbar } from "@/components/layout/Navbar";
+import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ThemeBootScript } from "@/components/theme/ThemeBootScript";
-import { siteContent } from "@/data";
+import { portfolio } from "@/data";
 
 export const metadata: Metadata = {
-  title: siteContent.metadata.title,
-  description: siteContent.metadata.description,
+  title: portfolio.metadata.title,
+  description: portfolio.metadata.description,
 };
 
 export const viewport: Viewport = {
@@ -24,7 +24,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <ThemeBootScript />
       </head>
       <body>
-        <Navbar />
+        <Header />
         <main>{children}</main>
         <Footer />
       </body>

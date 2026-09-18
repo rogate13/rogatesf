@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { siteContent, themeConfig, themes, type ThemePreset } from "@/data";
+import { portfolio, themeConfig, themes, type ThemePreset } from "@/data";
 
 function applyTheme(theme: ThemePreset) {
   const root = document.documentElement;
@@ -51,7 +51,7 @@ export function ThemeSwitcher({ compact = false }: { compact?: boolean }) {
     <div ref={rootRef} className="relative">
       <button
         type="button"
-        aria-label={siteContent.ui.changeThemeLabel}
+        aria-label={portfolio.ui.changeThemeLabel}
         aria-haspopup="menu"
         aria-expanded={open}
         onClick={() => setOpen((value) => !value)}
@@ -62,12 +62,12 @@ export function ThemeSwitcher({ compact = false }: { compact?: boolean }) {
           className="h-4 w-4 rounded-full ring-1 ring-white/20"
           style={{ background: `linear-gradient(135deg, ${activeTheme.preview[1]}, ${activeTheme.preview[2]})` }}
         />
-        {!compact ? <span>{siteContent.ui.themeButtonLabel}</span> : null}
+        {!compact ? <span>{portfolio.ui.themeButtonLabel}</span> : null}
       </button>
 
       {open ? (
         <div role="menu" className="theme-menu absolute right-0 top-[calc(100%+.65rem)] z-[70] w-[min(20rem,calc(100vw-2rem))] p-2">
-          <div className="px-3 pb-2 pt-1 text-xs font-semibold uppercase tracking-[0.18em] text-subtle">{siteContent.ui.themeMenuTitle}</div>
+          <div className="px-3 pb-2 pt-1 text-xs font-semibold uppercase tracking-[0.18em] text-subtle">{portfolio.ui.themeMenuTitle}</div>
           {themes.map((theme) => {
             const selected = theme.id === active;
             return (

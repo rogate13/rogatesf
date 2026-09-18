@@ -1,0 +1,19 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="30" y1="25" x2="224" y2="231" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4CE6B3"/>
+      <stop offset="1" stop-color="#7AA7FF"/>
+    </linearGradient>
+    <filter id="s" x="0" y="0" width="256" height="256" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+  <g filter="url(#s)">
+    <rect x="18" y="18" width="220" height="220" rx="64" fill="#07111F"/>
+    <rect x="20" y="20" width="216" height="216" rx="62" stroke="url(#g)" stroke-width="4" opacity="0.9"/>
+  </g>
+  <circle cx="197" cy="59" r="8" fill="#4CE6B3"/>
+  <path d="M59 172V78H94C117 78 130 89 130 108C130 123 122 133 108 137L134 172H109L87 141H81V172H59ZM81 123H92C103 123 108 118 108 109C108 100 103 96 92 96H81V123Z" fill="white"/>
+  <path d="M147 96C147 82 158 74 176 74C188 74 199 77 207 83L197 99C191 95 184 93 177 93C171 93 168 95 168 99C168 103 172 105 183 108C201 113 210 122 210 137C210 153 197 164 177 164C163 164 150 160 140 152L151 135C159 141 168 145 177 145C184 145 188 142 188 138C188 134 184 132 173 129C156 124 147 113 147 96Z" fill="white" opacity="0.92"/>
+  <path d="M144 172V116H208V136H166V149H202V167H166V172H144Z" fill="url(#g)"/>
+</svg>
