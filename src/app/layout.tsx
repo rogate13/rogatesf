@@ -3,13 +3,14 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ThemeBootScript } from "@/components/theme/ThemeBootScript";
-import { portfolio } from "@/data";
+import { defaultContent } from "@/data";
 import { ScrollExperience } from "@/components/experience/ScrollExperience";
 import { AmbientScene } from "@/components/visual/AmbientScene";
+import { LanguageProvider } from "@/components/language/LanguageProvider";
 
 export const metadata: Metadata = {
-  title: portfolio.metadata.title,
-  description: portfolio.metadata.description,
+  title: defaultContent.portfolio.metadata.title,
+  description: defaultContent.portfolio.metadata.description,
 };
 
 export const viewport: Viewport = {
@@ -21,16 +22,18 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="id" suppressHydrationWarning>
       <head>
         <ThemeBootScript />
       </head>
       <body>
-        <Header />
-        <ScrollExperience />
-        <AmbientScene />
-        <main>{children}</main>
-        <Footer />
+        <LanguageProvider>
+          <Header />
+          <ScrollExperience />
+          <AmbientScene />
+          <main>{children}</main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

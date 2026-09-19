@@ -1,12 +1,19 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { portfolio } from "@/data";
+import { useLanguage } from "@/components/language/LanguageProvider";
 
 export function HeroDialogue() {
-  const prompts = useMemo(() => [...portfolio.hero.dialogue.prompts], []);
+  const { content, locale } = useLanguage();
+  const { portfolio } = content;
+  const prompts = useMemo(() => [...portfolio.hero.dialogue.prompts], [portfolio.hero.dialogue.prompts]);
   const [promptIndex, setPromptIndex] = useState(0);
   const [typed, setTyped] = useState("");
+
+  useEffect(() => {
+    setPromptIndex(0);
+    setTyped("");
+  }, [locale]);
 
   useEffect(() => {
     const full = prompts[promptIndex] ?? "";
@@ -30,9 +37,7 @@ export function HeroDialogue() {
   }, [promptIndex, prompts]);
 
   useEffect(() => {
-    const onSceneInteraction = () => {
-      setPromptIndex((value) => (value + 1) % prompts.length);
-    };
+    const onSceneInteraction = () => setPromptIndex((value) => (value + 1) % prompts.length);
     window.addEventListener("rogate-scene-interaction", onSceneInteraction);
     return () => window.removeEventListener("rogate-scene-interaction", onSceneInteraction);
   }, [prompts.length]);
@@ -41,7 +46,7 @@ export function HeroDialogue() {
     <div className="hero-dialogue" aria-live="polite">
       <div className="hero-dialogue-status">
         <span className="hero-dialogue-dot" aria-hidden="true" />
-        <span>Available to build</span>
+        <span>{portfolio.hero.dialogue.availabilityLabel}</span>
       </div>
       <p className="hero-dialogue-greeting">{portfolio.hero.dialogue.greeting}</p>
       <p className="hero-dialogue-role">{portfolio.hero.dialogue.role}</p>

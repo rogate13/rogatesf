@@ -2,25 +2,19 @@ import Image from "next/image";
 import type { Project } from "@/types/content";
 import { TagList } from "@/components/shared/TagList";
 
-export function ProjectCard({ project, index }: { project: Project; index: number }) {
+export function ProjectCard({ project, index, systemLabel }: { project: Project; index: number; systemLabel: string }) {
   const detailItems = project.features.slice(0, 4);
 
   return (
     <article className="site-card interactive-card reveal-card group overflow-hidden rounded-[1.75rem]">
       <div className="project-media relative aspect-[16/10] overflow-hidden">
         {project.cover ? (
-          <Image
-            src={project.cover.src}
-            alt={project.cover.alt}
-            fill
-            className="object-cover object-top transition duration-700 group-hover:scale-[1.035]"
-            sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 620px"
-          />
+          <Image src={project.cover.src} alt={project.cover.alt} fill className="object-cover object-top transition duration-700 group-hover:scale-[1.035]" sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 620px" />
         ) : (
           <div className="project-fallback flex h-full flex-col justify-between p-6 text-main sm:p-7">
             <span className="eyebrow">{project.category}</span>
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">System / 0{index + 1}</p>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">{systemLabel} / 0{index + 1}</p>
               <span className="mt-3 block max-w-md text-2xl font-semibold tracking-tight sm:text-3xl">{project.title}</span>
             </div>
           </div>

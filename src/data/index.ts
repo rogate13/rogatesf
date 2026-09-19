@@ -1,13 +1,9 @@
 export {
-  portfolio,
-  projects,
-  skillGroups,
-  experiences,
-  education,
-  certifications,
-  achievements,
+  contentByLocale,
+  defaultContent,
+  languageConfig,
   themes,
   themeConfig,
   visualConfig,
 } from "./portfolio";
-export type { ThemePreset } from "./portfolio";
+export type { Locale, PortfolioContent, ThemePreset } from "./portfolio";

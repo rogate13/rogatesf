@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { portfolio } from "@/data";
+import { useLanguage } from "@/components/language/LanguageProvider";
 
 export function HeroExplorePopup() {
+  const { content } = useLanguage();
+  const { portfolio } = content;
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -14,9 +16,7 @@ export function HeroExplorePopup() {
   const handleExplore = () => {
     const target = document.getElementById(portfolio.hero.explorePopup.targetId);
     setVisible(false);
-    window.setTimeout(() => {
-      target?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 120);
+    window.setTimeout(() => target?.scrollIntoView({ behavior: "smooth", block: "start" }), 120);
   };
 
   return (

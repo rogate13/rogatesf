@@ -1,0 +1,502 @@
+TUTORIAL EDIT & KONFIGURASI PORTFOLIO ROGATE - V8
+====================================================
+Stack: Next.js + TypeScript + Tailwind CSS + Three.js
+Bahasa: Indonesia (ID) + English (EN)
+Default bahasa: Indonesia (ID)
+
+
+A. FILE UTAMA YANG PALING SERING DIEDIT
+========================================
+Hampir semua isi portfolio sekarang berada di SATU file:
+
+src/data/portfolio.ts
+
+Di file ini Anda bisa mengedit:
+- Bahasa Indonesia
+- Bahasa Inggris
+- Hero/dialog
+- Popup "Mulai eksplorasi / Explore now"
+- Profile
+- Services
+- Project
+- Skill
+- Experience
+- Education
+- Certification
+- Achievement
+- Teks footer
+- Nama dan deskripsi theme
+- Konfigurasi Three.js
+
+Untuk gambar project:
+public/images/projects/
+
+Untuk CV:
+public/documents/rogate-sola-fide-cv.pdf
+
+Untuk logo RSF:
+public/brand/rsf-logo.svg
+
+Untuk logo bendera bahasa:
+public/brand/flags/flag-id.svg
+public/brand/flags/flag-en.svg
+
+
+B. STRUKTUR BAHASA ID + EN
+===========================
+Di src/data/portfolio.ts terdapat:
+
+contentByLocale = {
+  id: { ... },
+  en: { ... }
+}
+
+Bagian "id" adalah Bahasa Indonesia.
+Bagian "en" adalah English.
+
+Default bahasa diatur di:
+
+languageConfig = {
+  defaultLocale: "id",
+  ...
+}
+
+Jangan ubah "id" menjadi "en" jika Anda ingin website pertama kali terbuka dalam Bahasa Indonesia.
+
+Pilihan bahasa visitor disimpan di browser dengan localStorage. Jadi visitor yang pernah memilih EN akan tetap menggunakan EN ketika kembali dengan browser yang sama. Untuk visitor baru, default tetap ID.
+
+
+C. EDIT TEKS BAHASA INDONESIA
+==============================
+Cari bagian:
+
+const idPortfolio = {
+  ...
+}
+
+Contoh mengganti dialog hero:
+
+hero: {
+  dialogue: {
+    greeting: "Hai, saya Rogate.",
+    question: "Apa yang bisa saya kembangkan untuk Anda hari ini?",
+    ...
+  }
+}
+
+Untuk project Bahasa Indonesia cari:
+
+const idProjects: Project[] = [
+  ...
+]
+
+Untuk pengalaman kerja:
+
+const idExperiences: Experience[] = [
+  ...
+]
+
+Untuk skill:
+
+const idSkillGroups: SkillGroup[] = [
+  ...
+]
+
+
+D. EDIT TEKS ENGLISH
+====================
+Cari bagian:
+
+const enPortfolio = {
+  ...
+}
+
+Project English:
+
+const enProjects: Project[] = [
+  ...
+]
+
+Experience English:
+
+const enExperiences: Experience[] = [
+  ...
+]
+
+Skill English:
+
+const enSkillGroups: SkillGroup[] = [
+  ...
+]
+
+PENTING:
+Jika menambah project/pengalaman baru, sebaiknya tambahkan juga di ID dan EN agar kedua bahasa tetap sinkron.
+Untuk project, gunakan slug yang SAMA pada versi ID dan EN.
+
+
+E. GANTI DEFAULT BAHASA
+=======================
+File:
+src/data/portfolio.ts
+
+Cari:
+
+defaultLocale: "id"
+
+ID = Bahasa Indonesia
+EN = English
+
+Saat ini disarankan tetap:
+
+defaultLocale: "id"
+
+
+F. EDIT LABEL TOMBOL DAN MENU BAHASA
+=====================================
+Di idPortfolio / enPortfolio cari:
+
+ui: {
+  downloadResume: ...,
+  changeThemeLabel: ...,
+  themeMenuTitle: ...,
+  changeLanguageLabel: ...,
+  languageMenuTitle: ...,
+  ...
+}
+
+Semua teks interface penting sudah dipisahkan berdasarkan bahasa, termasuk:
+- Download CV / Unduh CV
+- Menu theme
+- Menu bahasa
+- Education / Pendidikan
+- Certifications / Sertifikasi
+- Programming achievements / Pencapaian programming
+- Email
+- Label fallback project
+- Accessibility label dialog
+
+
+G. EDIT THEME WARNA
+===================
+Masih di:
+src/data/portfolio.ts
+
+Cari:
+
+export const themes: ThemePreset[] = [
+  ...
+]
+
+Theme saat ini:
+- aurora
+- violet / Nebula
+- ember
+- paper
+
+Warna visual diatur di "variables".
+Nama dan deskripsi theme berdasarkan bahasa berada di:
+
+idPortfolio.ui.themeOptions
+enPortfolio.ui.themeOptions
+
+Contoh warna utama Aurora:
+
+accent: "#4ce6b3"
+"accent-2": "#7aa7ff"
+background: "#07111f"
+
+
+H. MEMBUAT THREE.JS LEBIH LEMBUT
+================================
+File:
+src/data/portfolio.ts
+
+Cari:
+
+export const visualConfig = {
+  hero3D: { ... },
+  ambient3D: { ... }
+}
+
+1. Background Three.js di section setelah hero
+----------------------------------------------
+Konfigurasi utama:
+
+ambient3D: {
+  enabled: true,
+  particleCountDesktop: 460,
+  particleCountMobile: 170,
+  maxPixelRatio: 1.35,
+  maxOpacity: 0.34,
+  rotationSpeed: 0.00115,
+  orbOpacity: 0.24,
+  ringOpacity: 0.18,
+  particlesOpacity: 0.32,
+}
+
+REKOMENDASI LEBIH LEMBUT:
+
+ambient3D: {
+  enabled: true,
+  particleCountDesktop: 320,
+  particleCountMobile: 110,
+  maxPixelRatio: 1.20,
+  maxOpacity: 0.22,
+  rotationSpeed: 0.00075,
+  orbOpacity: 0.14,
+  ringOpacity: 0.10,
+  particlesOpacity: 0.18,
+}
+
+Arti konfigurasi:
+- maxOpacity
+  Semakin kecil, seluruh background 3D semakin samar.
+
+- orbOpacity
+  Mengatur transparansi bola/wireframe utama.
+
+- ringOpacity
+  Mengatur transparansi garis orbit.
+
+- particlesOpacity
+  Mengatur transparansi partikel.
+
+- rotationSpeed
+  Mengatur kecepatan gerak. Semakin kecil = semakin tenang/elegan.
+
+- particleCountDesktop
+  Jumlah partikel pada laptop/desktop.
+
+- particleCountMobile
+  Jumlah partikel pada HP.
+
+- maxPixelRatio
+  Semakin kecil akan semakin ringan untuk GPU/performa browser.
+
+Jika ingin background Three.js dimatikan:
+
+enabled: false
+
+
+2. Three.js pada hero
+---------------------
+Cari hero3D:
+
+hero3D: {
+  enabled: true,
+  particleCountDesktop: 1100,
+  particleCountMobile: 360,
+  maxPixelRatio: 1.6,
+  rotationSpeed: 0.0016,
+  pointerStrength: 0.38,
+  geometryDetail: 2,
+  orbOpacity: 0.42,
+  ringOpacity: 0.32,
+  particlesOpacity: 0.62,
+  satelliteCount: 7,
+  clickPulse: 0.22,
+}
+
+REKOMENDASI HERO LEBIH LEMBUT:
+
+hero3D: {
+  enabled: true,
+  particleCountDesktop: 800,
+  particleCountMobile: 250,
+  maxPixelRatio: 1.4,
+  rotationSpeed: 0.0011,
+  pointerStrength: 0.25,
+  geometryDetail: 2,
+  orbOpacity: 0.32,
+  ringOpacity: 0.22,
+  particlesOpacity: 0.42,
+  satelliteCount: 5,
+  clickPulse: 0.14,
+}
+
+pointerStrength:
+Semakin kecil = gerakan mengikuti mouse semakin lembut.
+
+clickPulse:
+Semakin kecil = efek ketika visual diklik/tap semakin halus.
+
+satelliteCount:
+Jumlah node/titik yang mengorbit.
+
+
+I. REKOMENDASI KONFIGURASI ELEGAN
+=================================
+Untuk portfolio profesional, jangan membuat animasi terlalu terang.
+Saya sarankan nilai berikut sebagai batas nyaman:
+
+Ambient:
+maxOpacity: 0.18 - 0.28
+orbOpacity: 0.10 - 0.18
+ringOpacity: 0.08 - 0.14
+particlesOpacity: 0.14 - 0.24
+rotationSpeed: 0.0006 - 0.0010
+
+Hero:
+orbOpacity: 0.28 - 0.38
+ringOpacity: 0.18 - 0.26
+particlesOpacity: 0.35 - 0.50
+pointerStrength: 0.20 - 0.30
+clickPulse: 0.10 - 0.16
+
+Prinsipnya:
+Konten harus tetap menjadi fokus utama. Three.js berfungsi untuk memberi atmosfer, bukan menutupi tulisan.
+
+
+J. MENAMBAH PROJECT BARU
+========================
+Tambahkan object baru ke BOTH:
+
+idProjects
+
+dan
+
+enProjects
+
+Contoh struktur singkat:
+
+{
+  slug: "nama-project",
+  title: "Nama Project",
+  organization: "Nama Perusahaan",
+  category: "Website Bisnis",
+  role: "Web Developer",
+  period: "2026",
+  featured: true,
+  summary: "Deskripsi...",
+  overview: ["..."],
+  responsibilities: ["..."],
+  features: ["..."],
+  technologies: ["PHP", "SQL"],
+  impact: ["..."],
+  cover: {
+    src: "/images/projects/nama-project/cover.webp",
+    alt: "Deskripsi gambar"
+  },
+  gallery: [],
+  links: { live: null, repository: null },
+  seo: {
+    title: "...",
+    description: "..."
+  }
+}
+
+featured: true
+= project tampil pada halaman utama.
+
+featured: false
+= project tidak tampil pada selected work.
+
+
+K. MENAMBAH GAMBAR PROJECT
+==========================
+Masukkan file ke:
+
+public/images/projects/nama-project/
+
+Contoh:
+cover.webp
+dashboard.webp
+report.webp
+
+Di portfolio.ts gunakan path tanpa kata public:
+
+BENAR:
+/images/projects/nama-project/cover.webp
+
+SALAH:
+/public/images/projects/nama-project/cover.webp
+
+
+L. GANTI CV
+===========
+Ganti file:
+
+public/documents/rogate-sola-fide-cv.pdf
+
+Jika nama file tetap sama, tidak perlu mengubah kode.
+
+
+M. BENDERA / LANGUAGE SWITCHER
+==============================
+File bendera:
+
+public/brand/flags/flag-id.svg
+public/brand/flags/flag-en.svg
+
+Konfigurasi pilihan bahasa:
+
+languageConfig.options
+
+Bahasa Indonesia memakai ID.
+English memakai EN.
+
+Jika mengganti icon bendera, pertahankan nama file/path atau perbarui flagPath.
+
+
+N. MENJALANKAN PROJECT
+======================
+Install:
+
+npm install
+
+Development:
+
+npm run dev
+
+Buka:
+http://localhost:3000
+
+Production test:
+
+npm run build
+npm start
+
+
+O. SETELAH EDIT DATA
+====================
+Saat npm run dev masih berjalan:
+1. Edit src/data/portfolio.ts
+2. Save (Ctrl+S / Command+S)
+3. Browser biasanya otomatis refresh
+4. Cek Bahasa Indonesia
+5. Klik switcher EN dan cek English
+6. Cek mobile dan desktop
+7. Jalankan npm run build sebelum push ke Vercel
+
+
+P. CHECKLIST SEBELUM DEPLOY
+===========================
+[ ] Bahasa default ID
+[ ] Semua teks ID sudah benar
+[ ] Semua teks EN sudah benar
+[ ] Project ID dan EN jumlahnya sama
+[ ] Experience ID dan EN jumlahnya sama
+[ ] Download CV bekerja
+[ ] Bendera ID/EN tampil
+[ ] Theme switcher bekerja di kedua bahasa
+[ ] Three.js tidak mengganggu tulisan
+[ ] Tampilan mobile aman
+[ ] npm run build berhasil
+
+
+RINGKASAN PALING PENTING
+========================
+EDIT ISI + BAHASA + THEME + THREE.JS:
+src/data/portfolio.ts
+
+EDIT GAMBAR:
+public/images/
+
+EDIT CV:
+public/documents/rogate-sola-fide-cv.pdf
+
+EDIT LOGO:
+public/brand/
+
+DEFAULT BAHASA:
+ID / Bahasa Indonesia

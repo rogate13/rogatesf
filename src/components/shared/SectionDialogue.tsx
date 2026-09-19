@@ -1,6 +1,6 @@
-export function SectionDialogue({ label, message }: { label: string; message: string }) {
+export function SectionDialogue({ label, message, ariaPrefix }: { label: string; message: string; ariaPrefix: string }) {
   return (
-    <div className="section-dialogue reveal-card" aria-label={`A note from ${label}`}>
+    <div className="section-dialogue reveal-card" aria-label={`${ariaPrefix} ${label}`}>
       <span className="section-dialogue-mark" aria-hidden="true">RSF</span>
       <div>
         <p className="section-dialogue-label">{label}</p>
